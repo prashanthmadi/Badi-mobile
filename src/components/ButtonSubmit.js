@@ -99,9 +99,8 @@ export default class ButtonSubmit extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		top: -95,
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'flex-end',
 	},
 	button: {
 		alignItems: 'center',

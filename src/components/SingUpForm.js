@@ -23,6 +23,11 @@ export default class SingUpForm extends Component {
 					autoCapitalize={'none'}
 					returnKeyType={'done'}
 					autoCorrect={false} />
+					<UserInput source={usernameImg}
+						placeholder='Phone'
+						autoCapitalize={'none'}
+						returnKeyType={'done'}
+						autoCorrect={false} />
 				<UserInput source={usernameImg}
 					placeholder='Username'
 					autoCapitalize={'none'}
