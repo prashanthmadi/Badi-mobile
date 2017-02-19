@@ -1,24 +1,20 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+
+import Logo from './components/Logo';
+import SingUpForm from './components/SingUpForm';
+import Wallpaper from './components/Wallpaper';
+import ButtonSubmit from './components/ButtonSubmit';
 
 export default class SignUp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>I'm the SignUp component</Text>
-      </View>
+      <Wallpaper>
+        <Logo size={1}/>
+				<SingUpForm />
+				<ButtonSubmit/>
+			</Wallpaper>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

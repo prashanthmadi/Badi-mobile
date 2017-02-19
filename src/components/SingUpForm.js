@@ -3,7 +3,7 @@ import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
 	KeyboardAvoidingView,
-	View,
+	View
 } from 'react-native';
 
 import UserInput from './UserInput';
@@ -13,11 +13,16 @@ import SignupSection from './SignupSection';
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
 
-export default class Form extends Component {
+export default class SingUpForm extends Component {
 	render() {
 		return (
 			<KeyboardAvoidingView behavior='padding'
 				style={styles.container}>
+				<UserInput source={usernameImg}
+					placeholder='Email'
+					autoCapitalize={'none'}
+					returnKeyType={'done'}
+					autoCorrect={false} />
 				<UserInput source={usernameImg}
 					placeholder='Username'
 					autoCapitalize={'none'}
