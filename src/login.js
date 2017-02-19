@@ -12,8 +12,8 @@ export default class LoginScreen extends Component {
       <Wallpaper>
 				<Logo size={3}/>
 				<LoginForm />
+        <ButtonSubmit type="Login"/>
 				<SignupSection/>
-				<ButtonSubmit/>
 			</Wallpaper>
     );
   }

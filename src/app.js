@@ -14,10 +14,14 @@ function setup() : ReactClass < {} > {
 
     class Badi extends Component {
 
+
         isLoggedIn() {
+
+          const user = await Parse.User.currentAsync();
+
             Parse.User.currentAsync()
-            .then(currentUser => console.warn("user " + currentUser))
-            .catch(error => console.warn(error.message));
+            .then(currentUser => console.log("user " + currentUser))
+            .catch(error => console.log(error.message));
         }
 
         render() {

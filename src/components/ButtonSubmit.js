@@ -86,7 +86,7 @@ export default class ButtonSubmit extends Component {
 							{this.state.isLoading ?
 								<Image source={spinner} style={styles.image} />
 								:
-								<Text style={styles.text}>LOGIN</Text>
+								<Text style={styles.text}>{this.props.type}</Text>
 							}
 					</TouchableOpacity>
 					<Animated.View style={[ styles.circle, {transform: [{scale: changeScale}]} ]} />
@@ -98,9 +98,9 @@ export default class ButtonSubmit extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		flex: 0.25,
 		alignItems: 'center',
-		justifyContent: 'flex-end',
+		justifyContent: 'center',
 	},
 	button: {
 		alignItems: 'center',

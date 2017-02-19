@@ -22,7 +22,7 @@ export default class Logo extends Component {
 
     container() {
         return{
-            flex : this.props.size,
+            flex : 1,
             alignItems : 'center',
             justifyContent : 'center'
         }
