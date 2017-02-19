@@ -1,26 +1,22 @@
-/* @flow */
-
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+
+import Logo from './components/Logo';
+import Form from './components/Form';
+import Wallpaper from './components/Wallpaper';
+import ButtonSubmit from './components/ButtonSubmit';
+import SignupSection from './components/SignupSection';
 
 export default class LoginScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Im the LoginScreen component</Text>
-      </View>
+      <Wallpaper>
+				<Logo />
+				<Form />
+				<SignupSection/>
+				<ButtonSubmit/>
+			</Wallpaper>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 module.exports = LoginScreen;
