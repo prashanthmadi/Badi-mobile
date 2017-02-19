@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import {Scene, Router} from 'react-native-router-flux';
-import LoginScreen from './login';
-import HomeScreen from './home';
-import SingUp from './signup';
+import LoginScreen from './screens/login';
+import HomeScreen from './screens/home';
+import SingUp from './screens/signup';
 
 var Parse = require('parse/react-native');
 
@@ -17,7 +17,7 @@ function setup() : ReactClass < {} > {
 
         isLoggedIn() {
 
-          const user = await Parse.User.currentAsync();
+          // const user = await Parse.User.currentAsync();
 
             Parse.User.currentAsync()
             .then(currentUser => console.log("user " + currentUser))

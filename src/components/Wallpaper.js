@@ -5,7 +5,7 @@ import {
 	Image,
 } from 'react-native';
 
-import bgSrc from '../images/wallpaper.png';
+import bgSrc from '../assets/images/wallpaper.png';
 
 export default class Wallpaper extends Component {
 	render() {

@@ -6,10 +6,10 @@ import {
 	View
 } from 'react-native';
 
-import Logo from './components/Logo';
-import SingUpForm from './components/SingUpForm';
-import Wallpaper from './components/Wallpaper';
-import ButtonSubmit from './components/ButtonSubmit';
+import Logo from '../components/Logo';
+import SingUpForm from '../components/SingUpForm';
+import Wallpaper from '../components/Wallpaper';
+import ButtonSubmit from '../components/ButtonSubmit';
 
 export default class SignUp extends Component {
   render() {
