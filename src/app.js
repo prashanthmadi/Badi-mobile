@@ -3,6 +3,7 @@ import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { Provider } from 'react-redux'
 import {Scene, Router} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 import LoginScreen from './screens/login';
 import HomeScreen from './screens/home';
@@ -22,16 +23,18 @@ function setup() : ReactClass < {} > {
 
     class Badi extends Component {
 
-        isLoggedIn() {
-
-          // const user = await Parse.User.currentAsync();
-
-            Parse.User.currentAsync()
-            .then(currentUser => console.log("user " + currentUser))
-            .catch(error => console.log(error.message));
+        async isLoggedIn() {
+          const user = await Parse.User.currentAsync();
+          if(user){
+            Actions.homeScreen();
+          }else{
+            Actions.loginScreen();
+          }
         }
 
-        render() {
+         render() {
+           this.isLoggedIn();
+
             return (
               <Provider store={store}>
                 <Router>
@@ -42,7 +45,6 @@ function setup() : ReactClass < {} > {
                     </Scene>
                 </Router>
               </Provider>
-
             );
         }
     }
