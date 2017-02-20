@@ -10,7 +10,7 @@ import {
 	Alert,
 	View,
 } from 'react-native';
-import { Actions, ActionConst } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 import spinner from '../assets/images/loading.gif';
 
@@ -34,26 +34,28 @@ export default class ButtonSubmit extends Component {
 	_onPress() {
 		if (this.state.isLoading) return;
 
-		this.setState({ isLoading: true });
-		Animated.timing(
-			this.buttonAnimated,
-			{
-				toValue: 1,
-				duration: 200,
-				easing: Easing.linear
-			}
-		).start();
+		// this.setState({ isLoading: true });
+		// Animated.timing(
+		// 	this.buttonAnimated,
+		// 	{
+		// 		toValue: 1,
+		// 		duration: 200,
+		// 		easing: Easing.linear
+		// 	}
+		// ).start();
 
-		setTimeout(() => {
-			this._onGrow();
-		}, 2000);
+	this.props.action();
 
-		setTimeout(() => {
-			this.props.action();
-			this.setState({ isLoading: false });
-			this.buttonAnimated.setValue(0);
-			this.growAnimated.setValue(0);
-		}, 2300);
+		// setTimeout(() => {
+		// 	this._onGrow();
+		// }, 2000);
+		//
+		// setTimeout(() => {
+		//
+		// 	this.setState({ isLoading: false });
+		// 	this.buttonAnimated.setValue(0);
+		// 	this.growAnimated.setValue(0);
+		// }, 2300);
 	}
 
 	_onGrow() {
