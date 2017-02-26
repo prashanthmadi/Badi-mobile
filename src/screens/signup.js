@@ -5,7 +5,7 @@ import {StyleSheet, View} from 'react-native';
 
 import Logo from '../components/Logo';
 import SingUpForm from '../components/SingUpForm';
-import Wallpaper from '../components/Wallpaper';
+import Wallpaper from '../components/common/Wallpaper';
 import { Actions } from 'react-native-router-flux';
 
 

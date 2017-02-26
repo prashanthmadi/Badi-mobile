@@ -11,8 +11,8 @@ import {
 	View,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
-import spinner from '../assets/images/loading.gif';
+import AppColors from 'AppColors';
+import spinner from '../../assets/images/loading.gif';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 	button: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#F035E0',
+		backgroundColor: AppColors.accentcolor,
 		height: MARGIN,
 		borderRadius: 20,
 		zIndex: 100,
@@ -117,11 +117,11 @@ const styles = StyleSheet.create({
 		width: MARGIN,
 		marginTop: -MARGIN,
 		borderWidth: 1,
-		borderColor: '#F035E0',
+		borderColor: AppColors.accentcolor,
 		borderRadius: 100,
 		alignSelf: 'center',
 		zIndex: 99,
-		backgroundColor: '#F035E0',
+		backgroundColor: AppColors.accentcolor,
 	},
 	text: {
 		color: 'white',

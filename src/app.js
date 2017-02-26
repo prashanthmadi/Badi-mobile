@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { Provider } from 'react-redux'
-import {Scene, Router} from 'react-native-router-flux';
-import { Actions } from 'react-native-router-flux';
+import {Scene, Router, Actions} from 'react-native-router-flux';
 
 import LoginScreen from './screens/login';
 import HomeScreen from './screens/home';
 import SingUp from './screens/signup';
+import {serverURL,appId} from './env';
+import NavigationDrawer from './components/navigation/NavigationDrawer';
 
 var Parse = require('parse/react-native');
 const reducers = {
@@ -17,16 +18,16 @@ const reducer = combineReducers(reducers)
 const store = createStore(reducer)
 
 function setup() : ReactClass < {} > {
-    Parse.initialize("131627da-2461-4b90-904c-350b02a118c3");
-    Parse.serverURL = 'https://parsesampleapp.azurewebsites.net/parse';
+    Parse.initialize(appId);
+    Parse.serverURL = serverURL;
     window.Parse = Parse;
 
-    class Badi extends Component {
+    class Root extends Component {
 
         async isLoggedIn() {
           const user = await Parse.User.currentAsync();
           if(user){
-            Actions.homeScreen();
+            Actions.drawer();
           }else{
             Actions.loginScreen();
           }
@@ -41,7 +42,9 @@ function setup() : ReactClass < {} > {
                     <Scene key="root">
                         <Scene key="loginScreen" component={LoginScreen} animation='fade' hideNavBar={true} initial={true}/>
                         <Scene key="singUp" component={SingUp} animation='fade' hideNavBar={true}/>
-                        <Scene key="homeScreen" component={HomeScreen} animation='fade' hideNavBar={true}/>
+                        <Scene key="drawer" component={NavigationDrawer} open={false} >
+                            <Scene key="homeScreen" component={HomeScreen} animation='fade' hideNavBar={true}/>
+                        </Scene>
                     </Scene>
                 </Router>
               </Provider>
@@ -49,7 +52,7 @@ function setup() : ReactClass < {} > {
         }
     }
 
-    return Badi;
+    return Root;
 }
 
 module.exports = setup;

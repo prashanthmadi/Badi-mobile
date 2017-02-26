@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import { Actions, ActionConst } from 'react-native-router-flux';
+import AppColors from 'AppColors';
 
 
 export default class SignupSection extends Component {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 		top:20
 	},
 	text: {
-		color: 'white',
+		color: AppColors.secondarytextcolor,
 		backgroundColor: 'transparent',
 	},
 });

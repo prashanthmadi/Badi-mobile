@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {View, Button} from 'react-native';
 
-import UserInput from './UserInput';
-import ButtonSubmit from './ButtonSubmit';
+import UserInput from './common/UserInput';
+import ButtonSubmit from './common/ButtonSubmit';
 
-import usernameImg from '../assets/images/username.png';
+import emailImg from '../assets/images/email.png';
 import passwordImg from '../assets/images/password.png';
+import phoneImg from '../assets/images/phone.png';
 
 class SignUpForm extends Component {
 
@@ -14,10 +15,10 @@ class SignUpForm extends Component {
         return (
             <View style={this.container()}>
                 <View style={this.inputfields()}>
-										<Field name="email" component={UserInput} source={usernameImg} placeholder='Email' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
-										<Field name="phoneNumber" component={UserInput} source={usernameImg} placeholder='PhoneNumber' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
+										<Field name="email" component={UserInput} source={emailImg} placeholder='Email' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
+										<Field name="phoneNumber" component={UserInput} source={phoneImg} placeholder='Phone Number' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
                     <Field name="password" component={UserInput} source={passwordImg} secureTextEntry={true} placeholder='Password' returnKeyType={'done'} autoCapitalize={'none'} autoCorrect={false}/>
-										<Field name="confirmPassword" component={UserInput} source={passwordImg} secureTextEntry={true} placeholder='Password' returnKeyType={'done'} autoCapitalize={'none'} autoCorrect={false}/>
+										<Field name="confirmPassword" component={UserInput} source={passwordImg} secureTextEntry={true} placeholder='Confirm Password' returnKeyType={'done'} autoCapitalize={'none'} autoCorrect={false}/>
     						</View>
                 <View style={this.submitbutton()}>
                     <Field name="submit" component={ButtonSubmit} type="SingUp" action={this.props.handleSubmit}/>

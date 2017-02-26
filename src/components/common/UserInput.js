@@ -6,6 +6,7 @@ import {
 	TextInput,
 	Image,
 } from 'react-native';
+import AppColors from 'AppColors';
 
 export default class UserInput extends Component {
 
@@ -22,8 +23,8 @@ export default class UserInput extends Component {
 								autoCorrect={this.props.autoCorrect}
 								autoCapitalize={this.props.autoCapitalize}
 								returnKeyType={this.props.returnKeyType}
-								placeholderTextColor='white'
 								onChangeText={(value) => onChange(value)}
+								placeholderTextColor= {AppColors.secondarytextcolor}
 								value={value} underlineColorAndroid="transparent"
 								selectTextOnFocus={true}
 							/>
@@ -47,13 +48,12 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	input: {
-		backgroundColor: 'rgba(255, 255, 255, 0.4)',
 		width: DEVICE_WIDTH - 40,
 		height: 40,
 		marginHorizontal: 20,
 		paddingLeft: 45,
 		borderRadius: 20,
-		color: '#ffffff',
+		color: AppColors.primarytextcolor,
 	},
 	inputWrapper: {
 		flex: 1,

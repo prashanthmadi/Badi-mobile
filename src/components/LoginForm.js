@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {View, Button} from 'react-native';
 
-import UserInput from './UserInput';
-import ButtonSubmit from './ButtonSubmit';
+import UserInput from './common/UserInput';
+import ButtonSubmit from './common/ButtonSubmit';
 
-import usernameImg from '../assets/images/username.png';
+import emailImg from '../assets/images/email.png';
 import passwordImg from '../assets/images/password.png';
 
 class LoginForm extends Component {
@@ -14,7 +14,7 @@ class LoginForm extends Component {
         return (
             <View style={this.container()}>
                 <View style={this.container()}>
-                    <Field name="username" component={UserInput} source={usernameImg} placeholder='Email' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
+                    <Field name="username" component={UserInput} source={emailImg} placeholder='Email' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/>
                     <Field name="password" component={UserInput} source={passwordImg} secureTextEntry={true} placeholder='Password' returnKeyType={'done'} autoCapitalize={'none'} autoCorrect={false}/>
                 </View>
                 <View style={this.container()}>

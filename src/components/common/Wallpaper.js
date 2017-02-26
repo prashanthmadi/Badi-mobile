@@ -2,17 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
-	Image,
+	View,
 } from 'react-native';
 
-import bgSrc from '../assets/images/wallpaper.png';
+import bgSrc from '../../assets/images/wallpaper.png';
+import AppColors from 'AppColors';
 
 export default class Wallpaper extends Component {
 	render() {
 		return (
-			<Image style={styles.picture} source={bgSrc}>
+			<View style={styles.picture} >
 				{this.props.children}
-			</Image>
+			</View>
 		);
 	}
 }
@@ -22,6 +23,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 			width: null,
 			height: null,
-		resizeMode: 'cover',
+			backgroundColor:AppColors.appBackground,
 	},
 });
