@@ -24,29 +24,30 @@ export default class Header extends Component {
 
 const styles = StyleSheet.create({
     header: {
-        height: 40,
-        paddingTop: 5,
+        height: 50,
+        paddingTop: 10,
         position: 'absolute',
         left: 0,
         right: 0,
         top: 0,
+        flexDirection: 'row',
         backgroundColor: AppColors.darkprimarycolor,
         zIndex: 10
     },
     text: {
         textAlign: 'center',
-        flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'stretch',
         fontSize: 20,
+        color:AppColors.textprimarycolor,
         flex: 1
     },
     inlineImg: {
         position: 'absolute',
-        left: 0,
-        right: 0,
+        left: 5,
+        top: 5,
         zIndex: 99,
-        width: 22,
-        height: 22
+        width: 30,
+        height: 30
     }
 });
