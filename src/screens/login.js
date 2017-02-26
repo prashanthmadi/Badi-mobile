@@ -11,7 +11,6 @@ export default class LoginScreen extends Component {
     handleSubmit = (values) => {
         Parse.User.logIn(values.username, values.password, {
             success: function(user) {
-              console.warn(JSON.stringify(user));
                 Actions.drawer();
             },
             error: function(user, error) {

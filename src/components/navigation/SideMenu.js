@@ -24,16 +24,30 @@ export default class SideMenu extends Component {
                     name: 'Manage ClassRoom',
                     action: 'manageClassRoom'
                 }, {
-                    name: 'Create a Parent Token',
+                    name: 'Parent Token',
                     action: 'parentToken'
+                }, {
+                    name: 'Logout',
+                    action: 'loginScreen'
                 }
             ])
         };
     }
 
     _onPress(rowData) {
-        Actions.drawer({key: rowData.action, type: 'replace'});
-        Actions.refresh({key: 'drawer', open: false })
+        if (rowData.name === "Logout") {
+            Parse.User.logOut().then(() => {
+                if (!Parse.User.current()) {
+                    Actions.drawer({key: rowData.action, type: 'replace'});
+                    console.warn("Logout Succesfull");
+                } else {
+                    console.warn("Logout failed");
+                }
+            });
+        } else {
+            Actions.drawer({key: rowData.action, type: 'replace'});
+            Actions.refresh({key: 'drawer', open: false})
+        }
     }
 
     render() {
