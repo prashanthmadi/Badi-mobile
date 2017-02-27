@@ -13,14 +13,7 @@ import actionAdd from '../../assets/images/actionAdd.png';
 export default class FABButton extends Component {
   render() {
     return (
-      <ActionButton buttonColor={AppColors.accentcolor} icon={<Image style={styles.inlineImg} source={actionSettings} />}>
-        <ActionButton.Item buttonColor={AppColors.accentcolor} title="Add Student" onPress={() =>Actions.drawer({key: "addStudent", type: 'replace'})}>
-          <Image style={styles.inlineImg} source={actionAdd} />
-        </ActionButton.Item>
-        <ActionButton.Item buttonColor={AppColors.accentcolor} title="Edit" onPress={() => {}}>
-          <Image style={styles.inlineImg} source={actionEdit} />
-        </ActionButton.Item>
-      </ActionButton>
+      <ActionButton buttonColor={AppColors.accentcolor} onPress={() =>Actions.drawer({key: "addStudent", type: 'replace'})} />
     );
   }
 }
