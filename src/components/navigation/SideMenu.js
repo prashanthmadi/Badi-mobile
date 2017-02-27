@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: AppColors.darkprimarycolor,
-        paddingTop: 10
+        padding: 10
     },
     text: {
         textAlign: 'left',
         fontSize: 20,
-        paddingLeft: 5,
+        padding: 10,
         borderColor: AppColors.textprimarycolor,
-        borderWidth: 1,
+        borderBottomWidth: 1,
         color: AppColors.textprimarycolor
     }
 });

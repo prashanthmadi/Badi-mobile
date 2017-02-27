@@ -3,8 +3,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import Logo from '../components/Logo';
-import SingUpForm from '../components/SingUpForm';
+import Logo from '../components/common/Logo';
+import SingUpForm from '../components/forms/SingUpForm';
 import Wallpaper from '../components/common/Wallpaper';
 import { Actions } from 'react-native-router-flux';
 

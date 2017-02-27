@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Actions } from 'react-native-router-flux';
 
-import Logo from '../components/Logo';
-import LoginForm from '../components/LoginForm';
+import Logo from '../components/common/Logo';
+import LoginForm from '../components/forms/LoginForm';
 import Wallpaper from '../components/common/Wallpaper';
 import SignupSection from '../components/SignupSection';
 

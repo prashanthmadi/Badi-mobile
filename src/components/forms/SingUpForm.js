@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {View, Button} from 'react-native';
 
-import UserInput from './common/UserInput';
-import ButtonSubmit from './common/ButtonSubmit';
+import UserInput from '../common/UserInput';
+import ButtonSubmit from '../common/ButtonSubmit';
 
-import emailImg from '../assets/images/email.png';
-import passwordImg from '../assets/images/password.png';
-import phoneImg from '../assets/images/phone.png';
+import emailImg from '../../assets/images/email.png';
+import passwordImg from '../../assets/images/password.png';
+import phoneImg from '../../assets/images/phone.png';
 
 class SignUpForm extends Component {
 
