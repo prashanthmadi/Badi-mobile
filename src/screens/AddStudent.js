@@ -10,8 +10,6 @@ import NewStudentForm from '../components/forms/NewStudentForm';
 export default class AddStudent extends Component {
 
     handleSubmit = (values) => {
-        console.warn(JSON.stringify(values));
-
         var Student = Parse.Object.extend("Student");
         var student = new Student();
 

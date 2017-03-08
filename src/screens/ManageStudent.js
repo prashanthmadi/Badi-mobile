@@ -1,68 +1,59 @@
 /* @flow */
 
 import React, {Component} from 'react';
-import {View, Text, ListView, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+    View,
+    Text,
+    ListView,
+    StyleSheet,
+    ScrollView,
+} from 'react-native';
 import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
 import UserListItem from '../components/common/UserListItem';
 import AppColors from 'AppColors';
 import FABButton from '../components/navigation/FABButton';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {ActionCreators} from '../actions'
 
-import kid1 from '../assets/images/kid1.jpg';
-import kid2 from '../assets/images/kid2.jpg';
-import kid3 from '../assets/images/kid3.jpg';
+class ManageStudent extends Component {
 
-export default class ManageStudent extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-  constructor(props) {
-      super(props);
-      const ds = new ListView.DataSource({
-          rowHasChanged: (r1, r2) => r1 !== r2
-      });
-      this.state = {
-          dataSource: ds.cloneWithRows([
-              {
-                  name: 'Prashanth Madi',
-                  image:kid1
-              }, {
-                  name: 'Prashant Pratap',
-                  image:kid2
-              }, {
-                  name: 'Anand',
-                  image:kid3
-              }, {
-                  name: 'David',
-                  image:kid2
-              }, {
-                  name: 'John',
-                  image:kid1
-              }, {
-                  name: 'Prashant Pratap',
-                  image:kid2
-              }, {
-                  name: 'Anand',
-                  image:kid3
-              }
-          ])
-      };
-  }
-
-  _onPress(rowData) {
-  }
+    componentWillMount() {
+        this.props.getStudentsList();
+    }
 
     render() {
-        return (
-            <Wallpaper>
-                <Header title="Manage Students" source={hamburgerImg}/>
+        const {studentsList} = this.props;
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+        });
+        if (studentsList && studentsList.length !== 0) {
+            return (
+                <Wallpaper>
+                    <Header title="Manage Students" source={hamburgerImg}/>
+                    <View style={styles.container}>
+                        <ListView dataSource={ds.cloneWithRows(studentsList)}
+                            renderRow={(rowData) => <UserListItem student={rowData} />}
+                        />
+                        <FABButton/>
+                    </View>
+                </Wallpaper>
+            );
+         }
+         else{
+              return (
                 <View style={styles.container}>
-                <ScrollView>
-                    <ListView dataSource={this.state.dataSource} renderRow={(rowData) => <UserListItem user={rowData}/>}/>
-                </ScrollView>
-                <FABButton/>
-              </View>
-            </Wallpaper>
-        );
+                    <Text>empty list</Text>
+                </View>
+              )
+         }
+
     }
 }
 
@@ -72,3 +63,13 @@ const styles = StyleSheet.create({
         paddingTop: 50
     },
 });
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect((state) => {
+    return {
+        studentsList: state.studentsList
+    }
+}, mapDispatchToProps)(ManageStudent);

@@ -7,6 +7,7 @@ import {
   StyleSheet,Image,TouchableOpacity
 } from 'react-native';
 import AppColors from 'AppColors';
+import kid1 from '../../assets/images/kid1.jpg';
 
 export default class UserListItem extends Component {
   _onPress(userData){
@@ -15,9 +16,9 @@ export default class UserListItem extends Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={() => this._onPress(this.props.user)} style={styles.container}>
-        <Image style={styles.inlineImg} source={this.props.user.image} />
-        <Text style={styles.text}>{this.props.user.name}</Text>
+      <TouchableOpacity onPress={() => this._onPress(this.props.student)} style={styles.container}>
+        <Image style={styles.inlineImg} source={kid1} />
+        <Text style={styles.text}>{this.props.student.get('firstName')}</Text>
       </TouchableOpacity>
     );
   }

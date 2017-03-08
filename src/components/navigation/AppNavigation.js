@@ -22,7 +22,7 @@ export default class AppNavigation extends Component {
               <Scene key="singUp" component={SingUp} animation='fade' hideNavBar={true}/>
               <Scene key="drawer" component={NavigationDrawer} open={false} >
                   <Scene key="homeScreen" component={HomeScreen} animation='fade' hideNavBar={true}/>
-                  <Scene key="manageStudent" component={ManageStudent} animation='fade' hideNavBar={true}/>
+                  <Scene key="manageStudent" component={ManageStudent} animation='fade' hideNavBar={true} initial={true}/>
                   <Scene key="manageClassRoom" component={ManageClassRoom} animation='fade' hideNavBar={true}/>
                   <Scene key="parentToken" component={ParentToken} animation='fade' hideNavBar={true}/>
                   <Scene key="addStudent" component={AddStudent} animation='fade' hideNavBar={true}/>

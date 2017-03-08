@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
-import { createStore, combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
 import { Provider } from 'react-redux'
 import {Actions} from 'react-native-router-flux';
+var Parse = require('parse/react-native');
 
 import {serverURL,appId} from './env';
+import Store from './store';
 import AppNavigation from './components/navigation/AppNavigation';
 
-var Parse = require('parse/react-native');
-const reducers = {
-  form: formReducer
-}
-const reducer = combineReducers(reducers)
-const store = createStore(reducer)
+const store = Store();
 
 function setup() : ReactClass < {} > {
     Parse.initialize(appId);
