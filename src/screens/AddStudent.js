@@ -6,6 +6,7 @@ import Wallpaper from '../components/common/Wallpaper';
 import Header from '../components/common/Header';
 import hamburgerImg from '../assets/images/hamburger.png';
 import NewStudentForm from '../components/forms/NewStudentForm';
+import { Actions } from 'react-native-router-flux';
 
 export default class AddStudent extends Component {
 
@@ -25,7 +26,7 @@ export default class AddStudent extends Component {
             dob: dobirth
         }, {
             success: function(student) {
-                console.warn(JSON.stringify(values));
+                Actions.drawer({key: 'manageStudent', type: 'replace'});
             },
             error: function(student, error) {
                 console.warn(JSON.stringify(error));

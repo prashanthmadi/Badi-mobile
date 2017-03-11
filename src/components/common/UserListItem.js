@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import AppColors from 'AppColors';
 import kid1 from '../../assets/images/kid1.jpg';
+import {Actions} from 'react-native-router-flux';
+
 
 export default class UserListItem extends Component {
-  _onPress(userData){
-    console.warn(JSON.stringify(userData));
+  _onPress(studentData){
+    Actions.drawer({key: "studentDetail", type: 'replace'});
   }
 
   render() {

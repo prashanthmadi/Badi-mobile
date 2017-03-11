@@ -6,4 +6,3 @@ export const studentsList = createReducer([], {
     return action.students;
   },
 });
-
