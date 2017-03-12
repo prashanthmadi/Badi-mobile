@@ -12,8 +12,8 @@ import {Actions} from 'react-native-router-flux';
 
 
 export default class UserListItem extends Component {
-  _onPress(studentData){
-    Actions.drawer({key: "studentDetail", type: 'replace'});
+  _onPress(student){
+    Actions.drawer({key: "studentDetail", type: 'replace',student:student});
   }
 
   render() {

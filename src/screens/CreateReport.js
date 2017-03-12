@@ -1,49 +1,40 @@
-/* @flow */
-
-import React, {Component} from 'react';
-import {
-    View,
-    Text,
-    ListView,
-    StyleSheet,
-    ScrollView,
-} from 'react-native';
+//import liraries
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, ListView } from 'react-native';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {ActionCreators} from '../actions'
+import {Actions} from 'react-native-router-flux';
 
+import {ActionCreators} from '../actions'
 import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
-import UserListItem from '../components/common/UserListItem';
-import AppColors from 'AppColors';
 import FABButton from '../components/navigation/FABButton';
 
+// create a component
+class CreateReport extends Component {
 
-class ManageStudent extends Component {
-
-    constructor(props) {
+     constructor(props) {
         super(props);
     }
 
-    componentWillMount() {
-        this.props.getStudentsList();
+      componentWillMount() {
+        this.props.getQuestionsList();
     }
 
     render() {
-        const {studentsList} = this.props;
+        const {questionList} = this.props;
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
-        if (studentsList && studentsList.length !== 0) {
+        if (questionList && questionList.length !== 0) {
             return (
                 <Wallpaper>
-                    <Header title="Manage Students" source={hamburgerImg}/>
+                    <Header title={this.props.student.get('firstName')} source={hamburgerImg} />
                     <View style={styles.container}>
-                        <ListView dataSource={ds.cloneWithRows(studentsList)}
-                            renderRow={(rowData) => <UserListItem student={rowData} />}
-                        />
-                        <FABButton/>
+                        <ListView dataSource={ds.cloneWithRows(questionList)}
+                                renderRow={(rowData) => <Text>{rowData.get('Text')}</Text>}
+                            />
                     </View>
                 </Wallpaper>
             );
@@ -55,15 +46,18 @@ class ManageStudent extends Component {
                 </View>
               )
          }
-
     }
 }
 
+// define your styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 50
     },
+    buttonContainer:{
+        padding:10
+    }
 });
 
 function mapDispatchToProps(dispatch) {
@@ -72,6 +66,6 @@ function mapDispatchToProps(dispatch) {
 
 export default connect((state) => {
     return {
-        studentsList: state.studentsList
+        questionList: state.questionList
     }
-}, mapDispatchToProps)(ManageStudent);
+}, mapDispatchToProps)(CreateReport);

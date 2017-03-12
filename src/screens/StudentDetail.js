@@ -1,14 +1,34 @@
-//import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Button } from 'react-native';
+import Header from '../components/common/Header';
+import Wallpaper from '../components/common/Wallpaper';
+import hamburgerImg from '../assets/images/hamburger.png';
+import FABButton from '../components/navigation/FABButton';
+import {Actions} from 'react-native-router-flux';
 
-// create a component
 class StudentDetail extends Component {
+    assignParent = () => {
+        console.warn('Button has been pressed!');
+    };
+
+    generateReport = (student) => {
+        Actions.drawer({key: "createReport", type: 'replace',student:student});
+    };
+
     render() {
         return (
-            <View style={styles.container}>
-                <Text>StudentDetail</Text>
-            </View>
+            <Wallpaper>
+                <Header title={this.props.student.get('firstName')} source={hamburgerImg} />
+                <View style={styles.container}>
+                    <Text> Name : {this.props.student.get('firstName')} {this.props.student.get('lastName')}</Text>
+                    <View style={styles.buttonContainer}>
+                        <Button onPress={this.assignParent} title="Assign Parent" color="#9E9E9E" accessibilityLabel="Assign Parent" />
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <Button onPress={() => this.generateReport(this.props.student)} title="Generate Report" color="#9E9E9E" accessibilityLabel="Assign Parent" />
+                    </View>
+                </View>
+            </Wallpaper>
         );
     }
 }
@@ -17,11 +37,11 @@ class StudentDetail extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        paddingTop: 50
     },
+    buttonContainer:{
+        padding:10
+    }
 });
-
 //make this component available to the app
 export default StudentDetail;
