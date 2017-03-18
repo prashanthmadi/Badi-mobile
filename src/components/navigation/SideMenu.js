@@ -18,14 +18,11 @@ export default class SideMenu extends Component {
                     name: 'Home',
                     action: 'homeScreen'
                 }, {
-                    name: 'Manage Student',
+                    name: 'Students',
                     action: 'manageStudent'
                 }, {
-                    name: 'Manage ClassRoom',
+                    name: 'ClassRoom',
                     action: 'manageClassRoom'
-                }, {
-                    name: 'Parent Token',
-                    action: 'parentToken'
                 }, {
                     name: 'Logout',
                     action: 'loginScreen'
