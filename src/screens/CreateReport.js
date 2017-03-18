@@ -10,7 +10,7 @@ import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
 import FABButton from '../components/navigation/FABButton';
-import SkillLevelItem from '../components/common/SkillLevelItem';
+
 // create a component
 class CreateReport extends Component {
 
@@ -33,7 +33,7 @@ class CreateReport extends Component {
                     <Header title={this.props.student.get('firstName')} source={hamburgerImg} />
                     <View style={styles.container}>
                         <ListView dataSource={ds.cloneWithRows(questionList)}
-                                renderRow={(rowData) => <SkillLevelItem question={rowData}/>}
+                                renderRow={(rowData) => <Text>{rowData.get('Text')}</Text>}
                             />
                     </View>
                 </Wallpaper>
