@@ -15,20 +15,20 @@ export default class UserInput extends Component {
 			const { input: { value, onChange }} = this.props;
 			return (
 				<View style={styles.inputWrapper}>
-						<Image source={this.props.source}
-							style={styles.inlineImg} />
-							<TextInput style={styles.input}
-								placeholder={this.props.placeholder}
-								secureTextEntry={this.props.secureTextEntry}
-								autoCorrect={this.props.autoCorrect}
-								autoCapitalize={this.props.autoCapitalize}
-								returnKeyType={this.props.returnKeyType}
-								onChangeText={(value) => onChange(value)}
-								placeholderTextColor= {AppColors.secondarytextcolor}
-								value={value} underlineColorAndroid="transparent"
-								selectTextOnFocus={true}
-							/>
-						</View>
+					<Image source={this.props.source}
+						style={styles.inlineImg} />
+					<TextInput style={styles.input}
+						placeholder={this.props.placeholder}
+						secureTextEntry={this.props.secureTextEntry}
+						autoCorrect={this.props.autoCorrect}
+						autoCapitalize={this.props.autoCapitalize}
+						returnKeyType={this.props.returnKeyType}
+						onChangeText={(value) => onChange(value)}
+						placeholderTextColor= {AppColors.secondarytextcolor}
+						value={value} underlineColorAndroid="transparent"
+						selectTextOnFocus={true}
+					/>
+				</View>
 			);
 	}
 

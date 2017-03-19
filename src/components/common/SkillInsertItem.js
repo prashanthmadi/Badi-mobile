@@ -5,6 +5,7 @@ import {Card,Slider} from 'react-native-elements'
 
 // create a component
 class SkillInsertItem extends Component {
+
     static defaultProps = {
         value: 0,
     };
@@ -24,18 +25,20 @@ class SkillInsertItem extends Component {
     }
 
     render() {
+        const {question} = this.props;
+
         return (
-             <Card title={this.props.question.get('Text')}>
+             <Card title={question.get('Text')}>
                 <Slider
                     value={this.state.value}
                     minimumTrackTintColor="green"
                     maximumTrackTintColor="red"
                     thumbTintColor="green"
                     minimumValue = {0}
-                    maximumValue ={this.getLegend(this.props.question.get('Category')).length-1}
+                    maximumValue ={this.getLegend(question.get('Category')).length-1}
                     step = {1}
                     onSlidingComplete={(value) => this.setState({value:value})} />
-                <Text>{this.getLegend(this.props.question.get('Category'))[this.state.value]}</Text>
+                <Text>{this.getLegend(question.get('Category'))[this.state.value]}</Text>
             </Card>
         );
     }
