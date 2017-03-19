@@ -10,18 +10,20 @@ import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
 import FABButton from '../components/navigation/FABButton';
+import {Card,Slider} from 'react-native-elements'
+import SkillInsertItem from '../components/common/SkillInsertItem';
 
 // create a component
 class CreateReport extends Component {
 
-     constructor(props) {
+    constructor(props) {
         super(props);
     }
 
-      componentWillMount() {
+ componentWillMount() {
         this.props.getQuestionsList();
     }
-
+    
     render() {
         const {questionList} = this.props;
         const ds = new ListView.DataSource({
@@ -33,7 +35,7 @@ class CreateReport extends Component {
                     <Header title={this.props.student.get('firstName')} source={hamburgerImg} />
                     <View style={styles.container}>
                         <ListView dataSource={ds.cloneWithRows(questionList)}
-                                renderRow={(rowData) => <Text>{rowData.get('Text')}</Text>}
+                            renderRow={(question) => <SkillInsertItem question={question} />}
                             />
                     </View>
                 </Wallpaper>
@@ -54,9 +56,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 50
-    },
-    buttonContainer:{
-        padding:10
     }
 });
 
