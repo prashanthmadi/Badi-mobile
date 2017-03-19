@@ -16,8 +16,8 @@ export default class NavigationDrawer extends Component {
                 type="displace"
                 content={<SideMenu />}
                 tapToClose={true}
-                openDrawerOffset={0.3}
-                panCloseMask={0.3}
+                openDrawerOffset={0.5}
+                panCloseMask={0.5}
                 negotiatePan={true}
                 tweenHandler={(ratio) => ({
                  main: { opacity:Math.max(0.54,1-ratio) }

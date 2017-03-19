@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {View, Button} from 'react-native';
+import {View} from 'react-native';
 
 import UserInput from '../common/UserInput';
 import ButtonSubmit from '../common/ButtonSubmit';

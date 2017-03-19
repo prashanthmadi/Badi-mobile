@@ -1,5 +1,5 @@
 {
-  "name": "Badi",
+  "name": "badi",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,7 +13,9 @@
     "react-native-action-button": "^2.6.0",
     "react-native-datepicker": "^1.4.4",
     "react-native-drawer": "^2.3.0",
+    "react-native-elements": "^0.10.0",
     "react-native-router-flux": "^3.37.0",
+    "react-native-vector-icons": "^4.0.0",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-form": "^6.5.0",

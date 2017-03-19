@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, {Component} from 'react';
 import {View, ListView, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import AppColors from 'AppColors';
@@ -18,15 +16,12 @@ export default class SideMenu extends Component {
                     name: 'Home',
                     action: 'homeScreen'
                 }, {
-                    name: 'Manage Student',
+                    name: 'Students',
                     action: 'manageStudent'
                 }, {
-                    name: 'Manage ClassRoom',
+                    name: 'ClassRoom',
                     action: 'manageClassRoom'
-                }, {
-                    name: 'Parent Token',
-                    action: 'parentToken'
-                }, {
+                },{
                     name: 'Logout',
                     action: 'loginScreen'
                 }

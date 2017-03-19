@@ -7,9 +7,12 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
+import { Card,Button } from 'react-native-elements'
+
 import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
+import kid from '../assets/images/kid1.jpg';
 
 
 export default class Home extends Component {
@@ -19,13 +22,17 @@ export default class Home extends Component {
         <Header title="Badi" source={hamburgerImg}/>
         <ScrollView>
          <View style={[styles.content]}>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
-           <View style={[styles.box]}></View>
+            <Card title='HELLO WORLD' image={kid}>
+              <Text style={{ marginBottom: 10 }}>
+                The idea with React Native Elements is more about component structure than actual design.
+              </Text>
+              <Button
+                icon={{ name: 'code' }}
+                backgroundColor='#03A9F4'
+                fontFamily='Lato'
+                buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                title='VIEW NOW' />
+            </Card>
          </View>
        </ScrollView>
     </Wallpaper>

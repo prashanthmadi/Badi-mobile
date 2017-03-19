@@ -2,8 +2,8 @@
 
 import React, {Component} from 'react';
 import {
-    View,
     Text,
+    View,
     ListView,
     StyleSheet,
     ScrollView,
@@ -11,13 +11,15 @@ import {
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {ActionCreators} from '../actions'
+import { List, ListItem } from 'react-native-elements'
 
 import Header from '../components/common/Header';
 import Wallpaper from '../components/common/Wallpaper';
 import hamburgerImg from '../assets/images/hamburger.png';
-import UserListItem from '../components/common/UserListItem';
 import AppColors from 'AppColors';
 import FABButton from '../components/navigation/FABButton';
+import kid1 from '../assets/images/kid1.jpg';
+import {Actions} from 'react-native-router-flux';
 
 
 class ManageStudent extends Component {
@@ -30,6 +32,20 @@ class ManageStudent extends Component {
         this.props.getStudentsList();
     }
 
+
+    renderRow(rowData, sectionID) {
+        return (
+            <ListItem
+                roundAvatar
+                key={sectionID}
+                title={rowData.get('firstName')}
+                avatar={kid1}
+                onPress={() =>Actions.drawer({ key: "studentDetail", type: 'replace', student: rowData })} 
+            />
+        )
+    }
+
+
     render() {
         const {studentsList} = this.props;
         const ds = new ListView.DataSource({
@@ -40,9 +56,11 @@ class ManageStudent extends Component {
                 <Wallpaper>
                     <Header title="Manage Students" source={hamburgerImg}/>
                     <View style={styles.container}>
+                        <ScrollView>
                         <ListView dataSource={ds.cloneWithRows(studentsList)}
-                            renderRow={(rowData) => <UserListItem student={rowData} />}
+                            renderRow={this.renderRow}
                         />
+                        </ScrollView>
                         <FABButton/>
                     </View>
                 </Wallpaper>
