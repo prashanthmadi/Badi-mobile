@@ -1,9 +1,7 @@
-//import liraries
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 import {Card,Slider} from 'react-native-elements'
 
-// create a component
 class SkillInsertItem extends Component {
 
     static defaultProps = {
@@ -25,7 +23,12 @@ class SkillInsertItem extends Component {
     }
 
     render() {
-        const {question} = this.props;
+		const { question, input: { onChange }} = this.props;
+
+        slideComplete = (value) => {
+            this.setState({ value: value });
+            onChange(value);
+        };
 
         return (
              <Card title={question.get('Text')}>
@@ -37,14 +40,13 @@ class SkillInsertItem extends Component {
                     minimumValue = {0}
                     maximumValue ={this.getLegend(question.get('Category')).length-1}
                     step = {1}
-                    onSlidingComplete={(value) => this.setState({value:value})} />
+                    onSlidingComplete={slideComplete} />
                 <Text>{this.getLegend(question.get('Category'))[this.state.value]}</Text>
             </Card>
         );
     }
 }
 
-// define your styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -54,5 +56,4 @@ const styles = StyleSheet.create({
     },
 });
 
-//make this component available to the app
 export default SkillInsertItem;
